@@ -1,4 +1,4 @@
-#include "controller.h"
+#include "../controller.h"
 static HWND aComboBox, bComboBox, xComboBox, yComboBox, leftJoystickComboBox, rightJoystickComboBox, leftJoystickButtonComboBox, rightJoystickButtonComboBox, leftShoulderComboBox, rightShoulderComboBox;
 static HWND hwnd = NULL;
 

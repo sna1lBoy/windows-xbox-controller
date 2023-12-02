@@ -1,4 +1,4 @@
-#include "controller.h"
+#include "../controller.h"
 
 // removes spaces and new lines
 void removeWhitespace(char* line) {

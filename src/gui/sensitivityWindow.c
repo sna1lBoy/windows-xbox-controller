@@ -1,4 +1,4 @@
-#include "controller.h"
+#include "../controller.h"
 static HWND hwnd = NULL;
 
 // creates a sensitivity selection trackbar

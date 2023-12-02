@@ -1,4 +1,4 @@
-#include "controller.h"
+#include "../controller.h"
 
 void initilizeController() {
     controller.verticalMouseSensitivity = atoi(readConfig("vertical mouse sensitivity"));
