@@ -10,6 +10,7 @@
 controllerData controller;
 
 int main() {
+    ShowWindow( GetConsoleWindow(), SW_HIDE );
 
     // constantly check controller state
     initilizeController();

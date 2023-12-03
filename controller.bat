@@ -1,7 +1,7 @@
 @echo off
 
 cd files\bin
-powershell Start-Process -FilePath '.\controller.exe' -Verb RunAs -WindowStyle hidden
+powershell Start-Process -FilePath '.\controller.exe' -Verb RunAs
 
 cd ..\..\..
 
