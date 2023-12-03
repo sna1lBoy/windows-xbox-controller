@@ -10,7 +10,6 @@
 ## Features
 - Press "select" to adjust joystick sensitivity
 - Press "start" to rebind the default controls
-  - note: you have to press the joystick buttons for any changes to the controls of their respective joystick to sync
 - Default controls
   - Use the left joystick to move the mouse
   - Use the right joystick to scroll
