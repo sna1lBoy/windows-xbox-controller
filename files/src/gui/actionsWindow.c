@@ -150,7 +150,7 @@ LRESULT CALLBACK WndProcActions(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 }
 
 // setting up the window
-void actionsWindowThread() {
+DWORD WINAPI actionsWindowThread(LPVOID lpParam) {
 
     // creating controls
     INITCOMMONCONTROLSEX icex;
@@ -160,9 +160,9 @@ void actionsWindowThread() {
 
     // initializing window
     if (!hwnd) {
-    WNDCLASSEX wcActions = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProcActions, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, L"actionsWindow", NULL };
-    RegisterClassEx(&wcActions);
-    hwnd = CreateWindow(L"Actions", "Actions", WS_OVERLAPPEDWINDOW, ((GetSystemMetrics(SM_CXSCREEN) - 330) / 2), ((GetSystemMetrics(SM_CYSCREEN) - 295) / 2), 330, 295, NULL, NULL, wcActions.hInstance, NULL);
+        WNDCLASSEXW wcActions = { sizeof(WNDCLASSEXW), CS_CLASSDC, WndProcActions, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, L"actionsWindow", NULL };
+        RegisterClassExW(&wcActions);
+        hwnd = CreateWindowW(L"actionsWindow", L"Actions", WS_OVERLAPPEDWINDOW, ((GetSystemMetrics(SM_CXSCREEN) - 330) / 2), ((GetSystemMetrics(SM_CYSCREEN) - 295) / 2), 330, 295, NULL, NULL, wcActions.hInstance, NULL);
     }
     ShowWindow(hwnd, SW_SHOW);
 

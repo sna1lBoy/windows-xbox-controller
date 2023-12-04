@@ -74,7 +74,7 @@ LRESULT CALLBACK WndProcSensitivity(HWND hwnd, UINT msg, WPARAM wParam, LPARAM l
 }
 
 // setting up the window
-void sensitivityWindowThread() {
+DWORD WINAPI sensitivityWindowThread(LPVOID lpParam) {
 
     // creating controls
     INITCOMMONCONTROLSEX icex;
@@ -84,9 +84,9 @@ void sensitivityWindowThread() {
 
     // initializing window
     if (!hwnd) {
-    WNDCLASSEX wcSensitivity = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProcSensitivity, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, L"sensitivityWindow", NULL };
-    RegisterClassEx(&wcSensitivity);
-    hwnd = CreateWindow(L"Sensitivity", "Sensitivity", WS_OVERLAPPEDWINDOW, ((GetSystemMetrics(SM_CXSCREEN) - 215) / 2), ((GetSystemMetrics(SM_CYSCREEN) - 245) / 2), 215, 245, NULL, NULL, wcSensitivity.hInstance, NULL);
+        WNDCLASSEXW wcSensitivity = { sizeof(WNDCLASSEXW), CS_CLASSDC, WndProcSensitivity, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, L"sensitivityWindow", NULL };
+        RegisterClassExW(&wcSensitivity);
+        hwnd = CreateWindowW(L"sensitivityWindow", L"Sensitivity", WS_OVERLAPPEDWINDOW, ((GetSystemMetrics(SM_CXSCREEN) - 215) / 2), ((GetSystemMetrics(SM_CYSCREEN) - 245) / 2), 215, 245, NULL, NULL, wcSensitivity.hInstance, NULL);
     }
     ShowWindow(hwnd, SW_SHOW);
 

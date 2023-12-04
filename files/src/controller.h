@@ -45,8 +45,8 @@ typedef struct {
 extern controllerData controller;
 
 // ui functions
-void sensitivityWindowThread();
-void actionsWindowThread();
+DWORD WINAPI sensitivityWindowThread(LPVOID lpParam);
+DWORD WINAPI actionsWindowThread(LPVOID lpParam);
 
 // file functions
 void removeWhitespace(char* line);
@@ -54,7 +54,7 @@ char *readConfig(char key[]);
 void writeConfig(char key[], char value[]);
 
 // button functions
-void initilizeController();
+void initializeController();
 void moveMouse();
 void scroll();
 void holdPrimaryMouseButton();
@@ -66,5 +66,7 @@ void releaseMiddleMouseButton();
 void onScreenKeyboard();
 void windowsKey();
 void screenshot();
+void doTask(char *button);
+void checkForRelease(char *button);
 
 #endif

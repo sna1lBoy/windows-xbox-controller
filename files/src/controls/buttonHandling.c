@@ -1,6 +1,6 @@
-#include "../controller.h"
+#include "..\controller.h"
 
-void initilizeController() {
+void initializeController() {
     controller.verticalMouseSensitivity = atoi(readConfig("vertical mouse sensitivity"));
     controller.horizontalMouseSensitivity = atoi(readConfig("horizontal mouse sensitivity"));
     controller.verticalScrollSensitivity = atoi(readConfig("vertical scroll sensitivity"));
@@ -139,4 +139,32 @@ void releaseMiddleMouseButton() {
     input.type = INPUT_MOUSE;
     input.mi.dwFlags = MOUSEEVENTF_MIDDLEUP;
     SendInput(1, &input, sizeof(INPUT));
+}
+
+// perform the given button's assigned task
+void doTask(char *button) {
+    if (strcmp(button, "primarymousebutton") == 0) {
+        holdPrimaryMouseButton();
+    } else if (strcmp(button, "secondarymousebutton") == 0) {
+        holdSecondaryMouseButton();
+    } else if (strcmp(button, "middlemousebutton") == 0) {
+        holdMiddleMouseButton();
+    } else if (strcmp(button, "on-screenkeyboard") == 0) {
+        onScreenKeyboard();
+    } else if (strcmp(button, "windowskey") == 0) {
+        windowsKey();
+    } else if (strcmp(button, "screenshot") == 0) {
+        screenshot();
+    }
+}
+
+// when a button is release see if a mouse button needs to be released as well
+void checkForRelease(char *button) {
+    if (strcmp(button, "primarymousebutton") == 0) {
+        releasePrimaryMouseButton();
+    } else if (strcmp(button, "secondarymousebutton") == 0) {
+        releaseSecondaryMouseButton();
+    } else if (strcmp(button, "middlemousebutton") == 0) {
+        releaseMiddleMouseButton();
+    }
 }
