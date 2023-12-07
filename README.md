@@ -8,8 +8,9 @@
 - That's it
 
 ## Features
-- Press "select" to adjust joystick sensitivity
-- Press "start" to rebind the default controls
+- Press "select" to adjust the joystick sensitivity and rebind controls
+- Press "start" to toggle whether the controller is disabled for the active application
+  - Useful for programs like video games that already have the controller input set
 - Default controls
   - Use the left joystick to move the mouse
   - Use the right joystick to scroll
