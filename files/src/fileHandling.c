@@ -101,24 +101,50 @@ void writeConfig(char key[], char value[]) {
 
 // returns the active application
 char *getActiveApplication() {
+    // Buffer to store the process name
     char processName[MAX_PATH];
+    
+    // Get the handle of the foreground window
     HWND hwnd = GetForegroundWindow();
+
+    // Get the process ID of the window
     DWORD processId;
     GetWindowThreadProcessId(hwnd, &processId);
+
+    // Check if a valid process ID is obtained
     if (processId != 0) {
+        // Create a snapshot of the system's processes
         HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+
+        // Check if the snapshot creation is successful
         if (hSnapshot != INVALID_HANDLE_VALUE) {
+            // Structure to store information about a process in the snapshot
             PROCESSENTRY32 pe32;
             pe32.dwSize = sizeof(PROCESSENTRY32);
+
+            // Iterate through the processes in the snapshot
             if (Process32First(hSnapshot, &pe32)) {
                 do {
+                    // Check if the process ID matches the target process
                     if (pe32.th32ProcessID == processId) {
+                        // Copy the process name to the buffer
                         strcpy(processName, pe32.szExeFile);
+                        
+                        // Break out of the loop since we found the target process
                         break;
                     }
                 } while (Process32Next(hSnapshot, &pe32));
             }
+
+            // Close the handle to the snapshot
             CloseHandle(hSnapshot);
+        }
+    }
+
+    // Return a dynamically allocated copy of the process name
+    return strdup(processName);
+}
+
         }
     }
     return strdup(processName);
