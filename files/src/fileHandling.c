@@ -144,8 +144,3 @@ char *getActiveApplication() {
     // Return a dynamically allocated copy of the process name
     return strdup(processName);
 }
-
-        }
-    }
-    return strdup(processName);
-}
