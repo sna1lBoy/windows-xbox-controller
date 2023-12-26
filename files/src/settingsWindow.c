@@ -22,7 +22,7 @@ HWND createActionSelection(int joystick, HWND hwnd, char title[], LPCWSTR fancyT
             }
         }
 
-    // hi yes i know i repeat the same code here twice just with different arrays but nothing else worked after hours of trying or any answer resulted in more lines of code because of reallocating memories and resizing arrays so shut up
+    // hi yes i know i repeat the same code here twice just with different arrays but nothing else worked after hours of trying or any answer resulted in more lines of code because of reallocating memories and resizing arrays so shut up tom scott
     } else {
         char *actions[] = {"primary mouse button","secondary mouse button","middle mouse button","on-screen keyboard","windows key","screenshot","none"};
         for (size_t i = 0; i < sizeof(actions) / sizeof(actions[0]); i++) {
