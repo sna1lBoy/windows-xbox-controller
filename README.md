@@ -1,10 +1,9 @@
 ## This is a basic C executable to allow your Xbox controller to control your Windows PC
 
 ## How to use
-- Download the zip file and extract the contents
-- Run controller.bat
+- Download and run controller.exe
 - Click "More info" then "Allow anyway" if prompted
-  - To stop this warning, open the properties menu for controller.bat and under "General" click "unblock"
+  - To stop this warning, open the properties menu for controller.exe and under "General" click "unblock"
 - That's it
 
 ## Features
