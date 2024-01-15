@@ -11,7 +11,6 @@ HWND createActionSelection(int joystick, HWND hwnd, char title[], LPCWSTR fancyT
     HWND comboBox = CreateWindowW(L"COMBOBOX", L"", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST, 135, yPositionBox, 175, 150, hwnd, (HMENU) 1011, NULL, NULL);
     char* key = readConfig(title);
 
-
     // set options based on what's stored in the config
     if (joystick == 1) {
         char *actions[] = {"move mouse","scroll", "none"};

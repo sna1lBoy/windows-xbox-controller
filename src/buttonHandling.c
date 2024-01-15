@@ -4,6 +4,7 @@
 struct Button buttons[buttonCount];
 Controller controller;
 
+// set up controller based on config
 void initializeController() {
 
     // set up buttons
@@ -70,7 +71,6 @@ void scroll() {
     INPUT horizontalWheelInput = {0};
     horizontalWheelInput.type = INPUT_MOUSE;
     horizontalWheelInput.mi.dwFlags = MOUSEEVENTF_HWHEEL;
-
 
     if (strcmp(controller.leftJoystickFunction, "scroll") == 0) {
         verticalWheelInput.mi.mouseData = (controller.controls.Gamepad.sThumbLY / ((101 - controller.verticalScrollSensitivity) * 25));
